@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Logging;
 using Nancy;
 using Nancy.TinyIoc;
-using NancyCustomAPI.BusinessLogic.Services;
-using NancyCustomAPI.BusinessLogic.Services.Interfaces;
+using <%= applicationName %>.BusinessLogic.Services;
+using <%= applicationName %>.BusinessLogic.Services.Interfaces;
 using System;
 
 namespace <%= applicationName %>
@@ -29,7 +29,7 @@ namespace <%= applicationName %>
             container.Register(appSettings);
             container.Register(serviceProvider.GetService<ILoggerFactory>());
 
-            container.Register<IHomeService, HomeService>();
+            container.Register<IVersionService, VersionService>();
         }
     }
 }

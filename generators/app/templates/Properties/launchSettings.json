@@ -22,7 +22,7 @@
         "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
-    "NancyCustomAPI (Dev)": {
+    "<%= applicationName %> (Dev)": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5000",
@@ -30,7 +30,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NancyCustomAPI (Prod)": {
+    "<%= applicationName %> (Prod)": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:5000",

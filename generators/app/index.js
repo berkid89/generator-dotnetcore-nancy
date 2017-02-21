@@ -61,13 +61,13 @@ module.exports = Generator.extend({
     var folderServices = folderBusinessLogic + '/Services';
 
     this.fs.copyTpl(this.templatePath(folderServices + '/Interfaces/IAppSettings.cs'), this.destinationPath(folderServices + '/Interfaces/IAppSettings.cs'), this.props);
-    this.fs.copyTpl(this.templatePath(folderServices + '/Interfaces/IHomeService.cs'), this.destinationPath(folderServices + '/Interfaces/IHomeService.cs'), this.props);
+    this.fs.copyTpl(this.templatePath(folderServices + '/Interfaces/IVersionService.cs'), this.destinationPath(folderServices + '/Interfaces/IVersionService.cs'), this.props);
     this.fs.copyTpl(this.templatePath(folderServices + '/AppSettings.cs'), this.destinationPath(folderServices + '/AppSettings.cs'), this.props);
-    this.fs.copyTpl(this.templatePath(folderServices + '/HomeService.cs'), this.destinationPath(folderServices + '/HomeService.cs'), this.props);
+    this.fs.copyTpl(this.templatePath(folderServices + '/VersionService.cs'), this.destinationPath(folderServices + '/VersionService.cs'), this.props);
 
     var folderModules = 'Modules';
 
-    this.fs.copyTpl(this.templatePath(folderModules + '/HomeModule.cs'), this.destinationPath(folderModules + '/HomeModule.cs'), this.props);
+    this.fs.copyTpl(this.templatePath(folderModules + '/MainModule.cs'), this.destinationPath(folderModules + '/MainModule.cs'), this.props);
 
     var folderProperties = 'Properties';
 
