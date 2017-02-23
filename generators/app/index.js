@@ -42,6 +42,11 @@ module.exports = Generator.extend({
       message: 'Would you like to include Forms authentication?',
       default: false
     }, {
+      type: 'input',
+      name: 'port',
+      message: 'The port of the application:',
+      default: '5000'
+    }, {
       type: 'confirm',
       name: 'includeUnitTests',
       message: 'Would you like to include a UnitTest project?',
@@ -74,6 +79,7 @@ module.exports = Generator.extend({
     this.fs.copyTpl(this.templatePath(appBaseDir + 'project.json'), this.destinationPath(appResultDir + 'project.json'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'Startup.cs'), this.destinationPath(appResultDir + 'Startup.cs'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'web.config'), this.destinationPath(appResultDir + 'web.config'), this.props);
+    this.fs.copyTpl(this.templatePath(appBaseDir + 'hosting.json'), this.destinationPath(appResultDir + 'hosting.json'), this.props);
 
     this.fs.copyTpl(this.templatePath(appBaseDir + folderBusinessLogic + folderServices + 'Interfaces/IAppSettings.cs'), this.destinationPath(appResultDir + folderBusinessLogic + folderServices + 'Interfaces/IAppSettings.cs'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + folderBusinessLogic + folderServices + 'Interfaces/IVersionService.cs'), this.destinationPath(appResultDir + folderBusinessLogic + folderServices + 'Interfaces/IVersionService.cs'), this.props);
