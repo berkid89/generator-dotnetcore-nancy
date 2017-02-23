@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using System;
 using <%= applicationName %>.BusinessLogic.Services.Interfaces;
 
 namespace <%= applicationName %>.Modules
@@ -16,7 +17,8 @@ namespace <%= applicationName %>.Modules
                 return Response.AsJson(new
                 {
                     app = versionService.GetApplicationName(),
-                    version = versionService.GetApplicationVersion()
+                    version = versionService.GetApplicationVersion(),
+                    time = DateTime.Now
                 });
             });
         }
