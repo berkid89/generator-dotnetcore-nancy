@@ -5,6 +5,8 @@ using Nancy.TinyIoc;
 using <%= applicationName %>.BusinessLogic.Services;
 using <%= applicationName %>.BusinessLogic.Services.Interfaces;
 using System;
+<% if (includeFormsAuth) { %>using Nancy.Bootstrapper;
+using Nancy.Authentication.Forms;<% } %>
 
 namespace <%= applicationName %>
 {
@@ -31,5 +33,19 @@ namespace <%= applicationName %>
 
             container.Register<IVersionService, VersionService>();
         }
+
+        <% if (includeFormsAuth) { %>
+        protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
+        {
+            var formsAuthConfiguration =
+                new FormsAuthenticationConfiguration()
+                {
+                    RedirectUrl = "~/ login",
+                    UserMapper = requestContainer.Resolve<IUserMapper>(),
+                };
+
+            FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+        }
+        <% } %>
     }
 }
