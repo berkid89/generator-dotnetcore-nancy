@@ -1,5 +1,11 @@
 # generator-dotnetcore-nancy
-> Project templates for .net core with nancy
+
+![Version](https://img.shields.io/npm/v/generator-dotnetcore-nancy.svg)
+![Downloads per month](https://img.shields.io/npm/dm/generator-dotnetcore-nancy.svg)
+
+> Project template for .NET Core with Nancy
+
+Compatible with Visual Studio 2015/2017 and Visual Studio Code.
 
 ## Installation
 
