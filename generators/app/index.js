@@ -13,25 +13,10 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the fine ' + chalk.red('.NET Core with Nancy') + ' generator!'
+      'Welcome to the fine ' + chalk.red('.NET Core with Nancy - Microservice') + ' generator!'
     ));
 
     var prompts = [{
-      type: 'list',
-      name: 'type',
-      message: 'What type of application do you want to create?',
-      choices: [
-        {
-          name: 'API',
-          value: 'api'
-        },
-        {
-          name: 'Web application',
-          value: 'web'
-        }
-      ],
-      default: 'api'
-    }, {
       type: 'input',
       name: 'applicationName',
       message: 'The name of the application:',
@@ -90,7 +75,7 @@ module.exports = Generator.extend({
 
     this.fs.copyTpl(this.templatePath(appBaseDir + folderProperties + 'launchSettings.json'), this.destinationPath(appResultDir + folderProperties + 'launchSettings.json'), this.props);
 
-    if(this.props.includeFormsAuth) {
+    if (this.props.includeFormsAuth) {
       this.fs.copyTpl(this.templatePath(appBaseDir + folderModels + 'User.cs'), this.destinationPath(appResultDir + folderModels + 'User.cs'), this.props);
       this.fs.copyTpl(this.templatePath(appBaseDir + folderBusinessLogic + folderServices + 'UserProvider.cs'), this.destinationPath(appResultDir + folderBusinessLogic + folderServices + 'UserProvider.cs'), this.props);
     }

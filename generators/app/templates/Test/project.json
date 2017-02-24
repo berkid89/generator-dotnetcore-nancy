@@ -18,8 +18,15 @@
     "netcoreapp1.0": {
       "imports": [
         "dotnet5.6",
-        "portable-net45+win8"
+        "portable-net45+win8",
+        "dnxcore50"
       ]
     }
+  },
+
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": false,
+    "preserveCompilationContext": true
   }
 }
