@@ -13,7 +13,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the fine ' + chalk.red('.NET Core with Nancy - Microservice') + ' generator!'
+      'Welcome to the fine ' + chalk.red('.NET Core with Nancy framework [Microservice]') + ' generator!'
     ));
 
     var prompts = [{

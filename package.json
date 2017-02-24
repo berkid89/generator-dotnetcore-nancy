@@ -1,7 +1,7 @@
 {
   "name": "generator-dotnetcore-nancy",
-  "version": "1.0.1",
-  "description": "Project templates for .net core with nancy",
+  "version": "1.0.2",
+  "description": "Project template for .NET Core with Nancy framework",
   "homepage": "",
   "author": {
     "name": "berkid89",
