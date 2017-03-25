@@ -59,9 +59,8 @@ module.exports = Generator.extend({
     this.fs.copyTpl(this.templatePath(appBaseDir + 'appsettings.Development.json'), this.destinationPath(appResultDir + 'appsettings.Development.json'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'appsettings.Production.json'), this.destinationPath(appResultDir + 'appsettings.Production.json'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'Bootstrapper.cs'), this.destinationPath(appResultDir + 'Bootstrapper.cs'), this.props);
-    this.fs.copyTpl(this.templatePath(appBaseDir + 'NancyCustomAPI.xproj'), this.destinationPath(appResultDir + this.props.applicationName + '.xproj'), this.props);
+    this.fs.copyTpl(this.templatePath(appBaseDir + 'NancyCustomAPI.csproj'), this.destinationPath(appResultDir + this.props.applicationName + '.csproj'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'Program.cs'), this.destinationPath(appResultDir + 'Program.cs'), this.props);
-    this.fs.copyTpl(this.templatePath(appBaseDir + 'project.json'), this.destinationPath(appResultDir + 'project.json'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'Startup.cs'), this.destinationPath(appResultDir + 'Startup.cs'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'web.config'), this.destinationPath(appResultDir + 'web.config'), this.props);
     this.fs.copyTpl(this.templatePath(appBaseDir + 'hosting.json'), this.destinationPath(appResultDir + 'hosting.json'), this.props);
@@ -82,8 +81,7 @@ module.exports = Generator.extend({
 
     if (this.props.includeUnitTests) {
       this.fs.copyTpl(this.templatePath(testBaseDir + 'appsettings.Test.json'), this.destinationPath(testResultDir + 'appsettings.Test.json'), this.props);
-      this.fs.copyTpl(this.templatePath(testBaseDir + 'project.json'), this.destinationPath(testResultDir + 'project.json'), this.props);
-      this.fs.copyTpl(this.templatePath(testBaseDir + 'NancyCustomAPI.Tests.xproj'), this.destinationPath(testResultDir + this.props.applicationName + '.Tests.xproj'), this.props);
+      this.fs.copyTpl(this.templatePath(testBaseDir + 'NancyCustomAPI.Tests.csproj'), this.destinationPath(testResultDir + this.props.applicationName + '.Tests.csproj'), this.props);
 
       mkdirp.sync(this.destinationPath(testResultDir + folderBusinessLogic + folderServices));
 
