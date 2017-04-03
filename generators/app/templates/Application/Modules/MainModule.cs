@@ -46,7 +46,7 @@ namespace <%= applicationName %>.Modules
                     return error;
                 }
 
-                return this.LoginAndRedirect(user.ID<% if, (includeViews) { %>fallbackRedirectUrl: "/Secure"<% } %>);
+                return this.LoginAndRedirect(user.ID<% if(includeViews) { %>, fallbackRedirectUrl: "/Secure"<% } %>);
             });
 
             Get("/logout", args =>
