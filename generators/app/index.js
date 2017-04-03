@@ -27,6 +27,11 @@ module.exports = Generator.extend({
       message: 'Would you like to include Forms authentication?',
       default: false
     }, {
+      type: 'confirm',
+      name: 'includeViews',
+      message: 'Would you like to include Views (Super Simple View Engine)?',
+      default: false
+    }, {
       type: 'input',
       name: 'port',
       message: 'The port of the application:',
@@ -54,6 +59,7 @@ module.exports = Generator.extend({
     var folderModules = 'Modules/';
     var folderProperties = 'Properties/';
     var folderModels = 'Models/';
+    var folderViews = 'Views/';
     var folderTestHelpers = 'TestHelpers/';
 
     this.fs.copyTpl(this.templatePath(appBaseDir + 'appsettings.Development.json'), this.destinationPath(appResultDir + 'appsettings.Development.json'), this.props);
@@ -77,6 +83,13 @@ module.exports = Generator.extend({
     if (this.props.includeFormsAuth) {
       this.fs.copyTpl(this.templatePath(appBaseDir + folderModels + 'User.cs'), this.destinationPath(appResultDir + folderModels + 'User.cs'), this.props);
       this.fs.copyTpl(this.templatePath(appBaseDir + folderBusinessLogic + folderServices + 'UserProvider.cs'), this.destinationPath(appResultDir + folderBusinessLogic + folderServices + 'UserProvider.cs'), this.props);
+    }
+
+    if (this.props.includeViews) {
+      this.fs.copyTpl(this.templatePath(appBaseDir + folderViews + 'MasterPage.html'), this.destinationPath(appResultDir + folderViews + 'MasterPage.html'), this.props);
+      this.fs.copyTpl(this.templatePath(appBaseDir + folderViews + 'Index.html'), this.destinationPath(appResultDir + folderViews + 'Index.html'), this.props);
+      this.fs.copyTpl(this.templatePath(appBaseDir + folderViews + 'Login.html'), this.destinationPath(appResultDir + folderViews + 'Login.html'), this.props);
+      this.fs.copyTpl(this.templatePath(appBaseDir + folderViews + 'Secure.html'), this.destinationPath(appResultDir + folderViews + 'Secure.html'), this.props);
     }
 
     if (this.props.includeUnitTests) {

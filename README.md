@@ -20,6 +20,14 @@ Then generate your new project:
 yo dotnetcore-nancy
 ```
 
+## Questions
+
+1. The name of the application: (Text input)
+2. Would you like to include Forms authentication? (Y/N)
+3. Would you like to include Views (Super Simple View Engine)? (Y/N)
+4. The port of the application: (Number input)
+5. Would you like to include a UnitTest project? (Y/N)
+
 ## License
 
 MIT © [berkid89]()

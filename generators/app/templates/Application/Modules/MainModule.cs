@@ -17,15 +17,23 @@ namespace <%= applicationName %>.Modules
 
             Get("/", args =>
             {
-                return Response.AsJson(new
+                var model = new
                 {
                     app = versionService.GetApplicationName(),
                     version = versionService.GetApplicationVersion(),
                     time = DateTime.Now
-                });
+                };
+            <% if (includeViews) { %>
+                return View["Index", model];
+            <% } else { %>
+                return Response.AsJson(model);<% } %>
             });
+            <% if (includeFormsAuth) { %><% if (includeViews) { %>
+            Get("/login", args =>
+            {
+                return View["Login"];
+            });<% } %>
 
-            <% if (includeFormsAuth) { %>
             Post("/login", args =>
             {
                 var user = UserProvider.ValidateUser((string)this.Request.Form.Username, (string)this.Request.Form.Password);
@@ -38,7 +46,7 @@ namespace <%= applicationName %>.Modules
                     return error;
                 }
 
-                return this.LoginAndRedirect(user.ID);
+                return this.LoginAndRedirect(user.ID<% if, (includeViews) { %>fallbackRedirectUrl: "/Secure"<% } %>);
             });
 
             Get("/logout", args =>
@@ -50,12 +58,15 @@ namespace <%= applicationName %>.Modules
             {
                 this.RequiresAuthentication();
 
-                return Response.AsJson(new
+                var model = new
                 {
                     loggedInAs = Context.CurrentUser.Identity.Name
-                });
-            });
-            <% } %>
+                };
+                <% if (includeViews) { %>
+                return View["Secure", model];
+                <% } else { %>
+                return Response.AsJson(model);<% } %>
+            });<% } %>
         }
     }
 }

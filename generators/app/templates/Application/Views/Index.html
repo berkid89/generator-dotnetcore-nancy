@@ -1,0 +1,15 @@
+@Master['MasterPage'] @Section['Content']
+
+<p>
+    This content from the index partial view, you can access the properties of the Model:
+    <ul>
+        <li>@Model.app</li>
+        <li>@Model.version</li>
+        <li>@Model.time</li>
+    </ul>
+</p>
+<% if (includeFormsAuth) { %>
+    <p><a href="/Login">Login page</a></p>
+<% } %>
+
+@EndSection

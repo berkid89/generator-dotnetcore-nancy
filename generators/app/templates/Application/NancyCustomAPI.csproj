@@ -24,4 +24,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
   </ItemGroup>
 
+  <% if (includeViews) { %><ItemGroup>
+    <Content Include="Views\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup><% } %>
+
 </Project>

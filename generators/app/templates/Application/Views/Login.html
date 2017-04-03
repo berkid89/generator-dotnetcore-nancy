@@ -1,0 +1,30 @@
+@Master['MasterPage']
+
+@Section['Content']
+
+<p>
+    Try these:
+    <table>
+        <thead>
+            <td>User name</td>
+            <td>Password</td>
+        </thead>
+        <tr>
+            <td>admin</td>
+            <td>pass</td>
+        </tr>
+        <tr>
+            <td>user</td>
+            <td>pass</td>
+        </tr>
+    </table>
+</p>
+
+<form method="post" action="/Login">
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" name="username" placeholder="User name" required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+</form>
+
+@EndSection
